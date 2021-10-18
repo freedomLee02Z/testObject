@@ -1,0 +1,11 @@
+url: /gethost
+RequestType: POST
+InterfaceName:
+ssss: la
+
+originalData:
+  {"name":"zhangsan","age":"18"}
+name:
+  {"@@@":"数据错误","123":"数据错误2"}
+age:
+  {"c":"参数错误1","!!!":"参数错误2"}
