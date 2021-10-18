@@ -25,6 +25,7 @@ public class UtilClass {
         sum += key.length();
         String sums = String.format("%03d", sum);
         String result = version + key + sums;
+        System.out.println(result);
         return result;
     }
 }
