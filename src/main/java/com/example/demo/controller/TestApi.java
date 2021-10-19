@@ -14,7 +14,7 @@ public class TestApi {
         return json;
     }
 
-    @GetMapping("test1")
+    @GetMapping("test")
     public String Test(){
         return "test";
     }
