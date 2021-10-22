@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class UtilClass {
     @RequestMapping("/getR")
-    public String getR(@RequestBody JSONObject version){
+    public Map getR(@RequestBody JSONObject version){
         Double num = (double)(new Date()).getTime() * Math.random() * 10000.0D;
         Long parseNum = (new Double(num)).longValue();
         Long val = Math.abs(parseNum);
@@ -24,8 +26,10 @@ public class UtilClass {
 
         sum += key.length();
         String sums = String.format("%03d", sum);
-        String result = version + key + sums;
+        String result = version.get("version") + key + sums;
+        Map mapResult  = new HashMap<>();
+        mapResult.put("result",result);
         System.out.println(result);
-        return result;
+        return mapResult;
     }
 }
