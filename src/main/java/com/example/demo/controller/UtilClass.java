@@ -13,7 +13,7 @@ import java.util.Map;
 @RestController
 public class UtilClass {
     @RequestMapping("/getR")
-    public Map getR(@RequestBody JSONObject version){
+    public Map getR(){
         Double num = (double)(new Date()).getTime() * Math.random() * 10000.0D;
         Long parseNum = (new Double(num)).longValue();
         Long val = Math.abs(parseNum);
@@ -26,7 +26,7 @@ public class UtilClass {
 
         sum += key.length();
         String sums = String.format("%03d", sum);
-        String result = version.get("version") + key + sums;
+        String result = key + sums;
         Map mapResult  = new HashMap<>();
         mapResult.put("result",result);
         System.out.println(result);
