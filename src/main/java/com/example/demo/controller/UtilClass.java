@@ -29,7 +29,6 @@ public class UtilClass {
         String result = key + sums;
         Map mapResult  = new HashMap<>();
         mapResult.put("result",result);
-        System.out.println(result);
         return mapResult;
     }
 }
