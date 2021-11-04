@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class UtilClass {
     @RequestMapping("/getR")
-    public Map getR(){
+    public static  Map getR(){
         Double num = (double)(new Date()).getTime() * Math.random() * 10000.0D;
         Long parseNum = (new Double(num)).longValue();
         Long val = Math.abs(parseNum);
