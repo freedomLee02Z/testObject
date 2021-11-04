@@ -16,6 +16,6 @@ public class TestApi {
 
     @GetMapping("test")
     public String Test(){
-        return "test1234";
+        return "test123456";
     }
 }
