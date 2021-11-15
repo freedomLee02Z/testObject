@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,13 +50,15 @@ public class IdCardGenerator {
      * @return
      */
     @GetMapping("/api/getIdCard")
-    public  String generate() {
+    public  JSONObject generate() {
         StringBuilder generater = new StringBuilder();
         generater.append(this.randomAreaCode());
         generater.append(this.randomBirthday());
         generater.append(this.randomCode());
         generater.append(this.calcTrailingNumber(generater.toString().toCharArray()));
-        return generater.toString();
+        JSONObject json = new JSONObject();
+        json.put("IdCard",generater.toString());
+        return json;
     }
 
 
