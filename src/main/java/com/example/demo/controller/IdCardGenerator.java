@@ -47,7 +47,7 @@ public class IdCardGenerator {
      *
      * @return
      */
-    @GetMapping("api/getIdCard")
+    @GetMapping("/api/getIdCard")
     public  String generate() {
         StringBuilder generater = new StringBuilder();
         generater.append(this.randomAreaCode());
