@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 public class UtilClass {
-    @PostMapping("/getR")
+    @PostMapping("api/getR")
     public static Map getR(@RequestBody JSONObject data) {
         Double num = (double) (new Date()).getTime() * Math.random() * 10000.0D;
         Long parseNum = (new Double(num)).longValue();
@@ -32,4 +32,6 @@ public class UtilClass {
 
         return mapResult;
     }
+
+
 }
