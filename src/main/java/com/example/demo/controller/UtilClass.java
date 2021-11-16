@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,11 @@ public class UtilClass {
 
 
         return mapResult;
+    }
+
+    @GetMapping("/api/getTest")
+    public String getTest(){
+        return "测试类";
     }
 
 
