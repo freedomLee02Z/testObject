@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 public class UtilClass {
-    @PostMapping("/api/getR")
+        @PostMapping("/api/getR")
     public static Map getR(@RequestBody JSONObject data) {
         Double num = (double) (new Date()).getTime() * Math.random() * 10000.0D;
         Long parseNum = (new Double(num)).longValue();
@@ -39,5 +39,10 @@ public class UtilClass {
         return "测试类";
     }
 
-
+    public static void main(String[] args){
+        String test  = "{\"version\":\"1.1\"}";
+            Map  map = UtilClass.getR(JSONObject.parseObject(test));
+            System.out.println(map.get("result"));
+    }
 }
+

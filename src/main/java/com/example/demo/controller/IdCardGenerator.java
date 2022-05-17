@@ -10,18 +10,6 @@ import java.util.*;
 public class IdCardGenerator {
     public static final Map<String, Integer> areaCode = new HashMap<String, Integer>();
 
-    /**
-     * 单例模式实现
-     */
-//    private static IdCardGenerator instance;
-//        private IdCardGenerator(){}
-//        public static IdCardGenerator getInstance(){
-//            if(instance==null){
-//                instance  = new IdCardGenerator();
-//            }
-//            return instance;
-//        }
-
     static {
         IdCardGenerator.areaCode.put("北京市", 110000);
         IdCardGenerator.areaCode.put("市辖区", 110100);
@@ -148,5 +136,9 @@ public class IdCardGenerator {
             result += c[i] * n[i];
         }
         return r[result % 11];
+    }
+
+    public  static void main(String[] args){
+        System.out.println(new IdCardGenerator().generate());
     }
 }
