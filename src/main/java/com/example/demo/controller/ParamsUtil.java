@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -108,16 +109,35 @@ public class ParamsUtil {
     }
 
     /**
-     * 时间戳转date
-     *
+     * 时间戳转时间
      * @param s 时间戳
      * @return yyyy-MM-dd HH:mm:ss
      */
     public static String stampToDate(String s) {
-        String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        res = simpleDateFormat.format(new Date(new Long(s)));
+        String res = simpleDateFormat.format(new Date(new Long(s)));
         return res;
+    }
+
+    /**时间转时间戳
+     * @param s    时间格式yyyy-MM-dd HH:mm:ss
+     * @param type ss/ms
+     * @return string 时间戳
+     */
+    public static String stampToTime(String s, String type) {
+        Long time = null;
+        try {
+            Date data = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(s);
+            if (type.equals("ms")) {
+                time = data.getTime();
+            } else if (type.equals("ss")) {
+                time = data.getTime() / 1000;
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return time.toString();
     }
 
     /**
@@ -166,5 +186,9 @@ public class ParamsUtil {
             }
         }
         return items;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
